@@ -1,0 +1,139 @@
+///
+/// Reflex by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Spotlight */
+
+	.spotlight {
+		@include vendor('display', 'flex');
+		@include vendor('flex-direction', 'row-reverse');
+		@include vendor('align-items', 'center');
+		text-align: left;
+		margin: (_size(element-margin) * 2) 0;
+
+		.image {
+			margin: 0 0 0 _size(element-margin);
+			width: 50%;
+			-ms-flex: 1;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		.content {
+			margin: 0 _size(element-margin) 0 0;
+			width: 50%;
+			-ms-flex: 1;
+
+			header {
+				h2, h3, h4, h5, h6 {
+					&:before {
+						margin-left: 0 !important;
+						margin-right: 0 !important;
+					}
+				}
+			}
+
+			> :last-child {
+				margin-bottom: 0;
+
+				> :last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+
+		&:nth-of-type(2n) {
+			@include vendor('flex-direction', 'row');
+
+			.image {
+				margin: 0 _size(element-margin) 0 0;
+			}
+
+			.content {
+				margin: 0 0 0 _size(element-margin);
+			}
+		}
+
+		@include breakpoint('<=large') {
+			.image {
+				margin: 0 0 0 (_size(element-margin) * 0.75);
+			}
+
+			.content {
+				margin: 0 (_size(element-margin) * 0.75) 0 0;
+			}
+
+			&:nth-of-type(2n) {
+				.image {
+					margin: 0 (_size(element-margin) * 0.75) 0 0;
+				}
+
+				.content {
+					margin: 0 0 0 (_size(element-margin) * 0.75);
+				}
+			}
+		}
+
+		@include breakpoint('<=medium') {
+			display: block;
+
+			.image {
+				margin: 0 0 (_size(element-margin) * 1.5) 0 !important;
+				width: 100%;
+			}
+
+			.content {
+				margin: 0 !important;
+				text-align: center;
+				width: 100%;
+
+				header {
+					h2, h3, h4, h5, h6 {
+						&:before {
+							margin-left: auto !important;
+							margin-right: auto !important;
+						}
+					}
+				}
+			}
+
+			ul.actions {
+				@include vendor('justify-content', 'center');
+				width: 100%;
+				margin-left: 0;
+
+				li {
+					&:first-child {
+						padding-left: 0;
+					}
+				}
+			}
+
+			&:last-of-type {
+				border-bottom: solid 1px;
+				padding-bottom: (_size(element-margin) * 2) !important;
+			}
+		}
+
+		@include breakpoint('<=small') {
+			&:first-of-type {
+				margin-top: 0;
+			}
+		}
+	}
+
+	@mixin color-spotlight($p: null) {
+		.spotlight {
+			@include breakpoint('<=medium') {
+				&:last-of-type {
+					border-bottom-color: _palette($p, border-alt);
+				}
+			}
+		}
+	}
+
+	@include color-spotlight;

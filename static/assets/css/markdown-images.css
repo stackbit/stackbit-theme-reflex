@@ -1,0 +1,8 @@
+.wrapper .inner img,
+.wrapper .inner header img,
+.wrapper .inner section img,
+.wrapper .inner .spotlight .content img,
+.wrapper .inner .content header img,
+.wrapper .inner .major img{
+    max-width: 100%;
+}

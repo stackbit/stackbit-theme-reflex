@@ -1,0 +1,11 @@
+<section>
+    <header>
+        <h3>{{ site.data.social.title }}</h3>
+    </header>
+    {{ site.data.social.social_content | markdownify }}
+    <ul class="icons">
+        {% for link in site.data.social.social_links %}
+            <li><a href="{{ link.link_url }}" class="icon {{ link.icon }}"><span class="label">{{ link.title }}</span></a></li>
+        {% endfor %}
+    </ul>
+</section>

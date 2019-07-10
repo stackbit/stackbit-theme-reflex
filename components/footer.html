@@ -1,0 +1,21 @@
+<!-- Footer -->
+<section id="footer" class="wrapper split style2">
+    <div class="inner">
+        {% if site.data.social.enabled %}
+            {% include "social.html" %}
+        {% endif %}
+        {% if site.data.footer.enable_contact_section %}
+            {% include "contact.html" %}
+        {% endif %}
+    </div>
+    <div class="copyright">
+        <p>
+            {{ site.data.footer.copyright | safe }}
+            &nbsp;
+            {% for link in site.data.footer.links %}
+                <a href="{{ link.url }}" {% if link.new_window %}target="_blank" rel="noopener"
+                {% endif %}>{{ link.text }}</a>.
+            {% endfor %}
+        </p>
+    </div>
+</section>

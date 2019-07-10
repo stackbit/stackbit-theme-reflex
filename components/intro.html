@@ -1,0 +1,21 @@
+<!-- Intro -->
+<section id="intro" class="wrapper featured style1">
+    <div class="inner">
+        <span class="image"><img src="{{ include_dict.section.img_path | relative_url }}" alt="" /></span>
+        <div class="content">
+            <header>
+                <h1>{{ include_dict.section.title }}</h1>
+                {{ include_dict.section.content | markdownify }}
+            </header>
+            {% if include_dict.section.actions %}
+                <footer>
+                    <ul class="actions">
+                        {% for action in include_dict.section.actions %}
+                            <li><a href="{% if action.url | starts_with('#') %}{{ action.url }}{% else %}{{ action.url | link | relative_url }}{% endif %}" {{ classNames("button", "big", {"primary": action.is_primary}, {"scrolly": action.is_scrolly}) }}>{{ action.label }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </footer>
+            {% endif %}
+        </div>
+    </div>
+</section>

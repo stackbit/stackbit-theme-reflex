@@ -1,0 +1,40 @@
+///
+/// Reflex by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Footer */
+
+	#footer {
+		.copyright {
+			text-align: center;
+			opacity: 0.35;
+			font-size: 0.8em;
+			margin: (_size(element-margin) * 2) 0 0 0;
+
+			&:before {
+				content: '';
+				display: block;
+				width: 4rem;
+				height: 1px;
+				margin: 0 auto 2rem auto;
+				border-top: solid 1px;
+				opacity: 0.5;
+			}
+		}
+
+		@include breakpoint('<=medium') {
+			ul.actions {
+				@include vendor('justify-content', 'center');
+				width: 100%;
+				margin-left: 0;
+
+				li {
+					&:first-child {
+						padding-left: 0;
+					}
+				}
+			}
+		}
+	}

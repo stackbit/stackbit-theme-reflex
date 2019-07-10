@@ -1,0 +1,9 @@
+actions:
+  - label: Get Started
+    url: generic.md
+    is_scrolly: false
+    is_primary: true
+  - label: Log In
+    url: generic.md
+    is_scrolly: false
+    is_primary: false

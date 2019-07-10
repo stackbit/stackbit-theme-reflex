@@ -1,0 +1,174 @@
+///
+/// Reflex by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Icons */
+
+	ul.icons {
+		cursor: default;
+		list-style: none;
+		padding-left: 0;
+
+		li {
+			position: relative;
+			display: inline-block;
+			padding: 0 1em 0 0;
+
+			&:last-child {
+				padding-right: 0 !important;
+			}
+
+			.icon {
+				&:before {
+					@include vendor('transition', 'background-color #{_duration(transition)} ease-in-out, color #{_duration(transition)} ease-in-out');
+					border: solid 1px;
+					border-radius: 100%;
+					width: 2.25em;
+					height: 2.25em;
+					line-height: 2.25em;
+					display: inline-block;
+					text-align: center;
+					font-size: 1.25em;
+				}
+			}
+		}
+
+		&.major {
+			margin: (_size(element-margin) * 1.75) 0;
+
+			li {
+				padding: 0 4em 0 0;
+
+				.icon {
+					&:before {
+						width: 3.5em;
+						height: 3.5em;
+						line-height: 3.5em;
+						font-size: 2.25rem;
+					}
+				}
+			}
+		}
+
+		&.style1 {
+		}
+
+		&.style2 {
+			li {
+				&:before {
+					content: '';
+					width: 1em;
+					height: 1px;
+					border-top: solid 1px;
+					display: block;
+					position: absolute;
+					top: 50%;
+					left: -1em;
+				}
+
+				&:first-child {
+					&:before {
+						display: none;
+					}
+				}
+			}
+
+			&.major {
+				li {
+					&:before {
+						width: 4em;
+						left: -4em;
+					}
+				}
+			}
+		}
+
+		@include breakpoint('<=large') {
+			&.major {
+				margin: 0 0 _size(element-margin) 0;
+
+				li {
+					padding: 1em !important;
+
+					&:before {
+						display: none;
+					}
+				}
+			}
+
+			&.style2 {
+				li {
+					&:before {
+						display: none;
+					}
+				}
+			}
+		}
+
+		@include breakpoint('<=medium') {
+			&.major {
+				max-width: 34em;
+				margin-left: auto;
+				margin-right: auto;
+
+				li {
+					.icon {
+						&:before {
+						}
+					}
+				}
+			}
+		}
+
+		@include breakpoint('<=small') {
+			&.major {
+				max-width: 30em;
+
+				li {
+					padding: 0.75em !important;
+
+					.icon {
+						&:before {
+							width: 2.75em;
+							height: 2.75em;
+							line-height: 2.75em;
+						}
+					}
+				}
+			}
+		}
+
+		@include breakpoint('<=xsmall') {
+			&.major {
+				max-width: 100%;
+
+				li {
+					padding: 0.5em !important;
+
+					.icon {
+						&:before {
+							font-size: 1.75rem;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@mixin color-icons($p: null) {
+		ul.icons {
+			li {
+				a.icon {
+					&:hover {
+						&:before {
+							background-color: _palette($p, border-bg);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@include color-icons;

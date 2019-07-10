@@ -1,0 +1,19 @@
+<!-- Menu -->
+<nav id="menu">
+    <div class="inner">
+        <h2>Menu</h2>
+        <ul class="links">
+            {% for item in site.menus.main %}
+                <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+            {% endfor %}
+        </ul>
+        {% if site.params.menu.actions %}
+            <ul class="actions stacked">
+                {% for action in site.params.menu.actions %}
+                    <li><a href="{% if action.url | starts_with('#') %}{{ action.url }}{% else %}{{ action.url | link | relative_url }}{% endif %}" {{ classNames("button", "fit", {"primary": action.is_primary}, {"scrolly": action.is_scrolly}) }}>{{ action.label }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <a class="close" href="#menu">Close</a>
+</nav>

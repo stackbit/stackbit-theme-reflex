@@ -1,0 +1,97 @@
+///
+/// Reflex by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Button */
+
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"],
+	button,
+	.button {
+		@include vendor('appearance', 'none');
+		@include vendor('transition', 'background-color #{_duration(transition)} ease-in-out, color #{_duration(transition)} ease-in-out');
+		border-radius: _size(border-radius);
+		border-style: solid;
+		border-width: 1px !important;
+		border-color: inherit !important;
+		color: inherit !important;
+		cursor: pointer;
+		display: inline-block;
+		font-weight: _font(weight-bold);
+		font-size: 0.7em;
+		height: (3em / 0.7);
+		line-height: (3em / 0.7);
+		border-radius: (3em / 0.7);
+		padding: 0 (2em / 0.7);
+		text-align: center;
+		text-decoration: none;
+		white-space: nowrap;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+
+		&:hover {
+			border: solid 1px;
+		}
+
+		&.icon {
+			&:before {
+				margin-right: 0.5em;
+			}
+		}
+
+		&.fit {
+			width: 100%;
+		}
+
+		&.large {
+			font-size: 0.85em;
+			height: (2.75em / 0.7);
+			line-height: (2.75em / 0.7);
+			border-radius: (2.75em / 0.7);
+			padding: 0 (1.75em / 0.7);
+		}
+
+		&.small {
+			font-size: 0.6em;
+			height: (2.25em / 0.6);
+			line-height: (2.25em / 0.6);
+			border-radius: (2.25em / 0.6);
+			padding: 0 (1.5em / 0.6);
+		}
+
+		&.disabled,
+		&:disabled {
+			@include vendor('pointer-events', 'none');
+			opacity: 0.25;
+		}
+	}
+
+	@mixin color-button($p: null) {
+		input[type="submit"],
+		input[type="reset"],
+		input[type="button"],
+		button,
+		.button {
+			background-color: transparent;
+
+			&:hover {
+				background-color: _palette($p, border-bg);
+			}
+
+			&.primary {
+				background-color: _palette($p, fg);
+				border-color: _palette($p, fg);
+				color: _palette($p, bg) !important;
+
+				&:hover {
+					background-color: _palette($p, border-bg);
+					color: inherit !important;
+				}
+			}
+		}
+	}
+
+	@include color-button;

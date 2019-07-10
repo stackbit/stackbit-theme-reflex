@@ -1,0 +1,19 @@
+{% extends "body.html" %}
+
+{% block content %}
+
+<!-- Main -->
+<section id="main" class="wrapper style1">
+    <div class="inner">
+        <header class="major">
+            <h1>{{ page.title }}</h1>
+            {{ page.params.subtitle | markdownify }}
+        </header>
+        {% if page.params.img_path %}
+            <span class="image main"><img src="{{ page.params.img_path | relative_url }}" alt="" /></span>
+        {% endif %}
+        {{ page.content }}
+    </div>
+</section>
+
+{% endblock %}

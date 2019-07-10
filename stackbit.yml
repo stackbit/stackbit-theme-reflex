@@ -1,0 +1,311 @@
+stackbitVersion: ~0.2.34
+uploadDir: images
+metadata:
+  title: Reflex
+  description: a multipage theme with posts
+  author: Pixelarity
+  authorURL: 'https://pixelarity.com'
+  images:
+    small: images/demo-256x192.png
+    large: images/demo-1024x768.png
+models:
+  config:
+    type: config
+    label: Config
+    fields:
+      - type: string
+        name: none
+        label: None
+        hidden: true
+        description: 'Just an empty param, allows the site params to be displayed properl'
+  menu:
+    type: data
+    file: menu.yml
+    label: Menu Configuration
+    fields:
+      - type: list
+        name: actions
+        label: Menu Action Buttons
+        description: The action buttons displayed at the bottom of the menu
+        items:
+          type: action
+  social:
+    type: data
+    file: social.yml
+    label: Social Configuration
+    fields:
+      - type: boolean
+        name: enabled
+        label: Enabled
+        default: false
+        description: Displays the social section in the page footer
+      - type: string
+        name: title
+        label: Section Title
+        description: The bold text displayed at the top of the section
+      - type: markdown
+        name: social_content
+        label: Section Text
+        description: The text displayed below the section title
+      - type: list
+        name: social_links
+        label: Social Media
+        description: A list of social media icons displayed along the bottom of the section
+        items:
+          type: object
+          labelField: title
+          fields:
+            - type: string
+              name: title
+              label: Icon Title
+              required: true
+            - type: string
+              name: icon
+              label: Icon
+              required: true
+              description: Font Awesome icon
+            - type: string
+              name: link_url
+              label: URL
+              widget: url
+  footer:
+    type: data
+    file: footer.yml
+    label: Footer Configuration
+    fields:
+      - type: boolean
+        name: enable_contact_section
+        label: Enable Contact Section
+        default: false
+        description: Displays the contact section in the page footer
+      - type: string
+        name: copyright
+        label: Copyright Text
+        description: The text displayed at the bottom of the site footer
+      - type: list
+        name: links
+        label: Links
+        description: A list of links displayed in the footer.
+        items:
+          type: object
+          labelField: text
+          fields:
+            - type: string
+              name: text
+              label: Link text
+            - type: string
+              name: url
+              label: URL
+              widget: url
+            - type: boolean
+              name: new_window
+              label: Open in new window
+              default: true
+  home:
+    type: page
+    label: Home
+    hideContent: true
+    singleInstance: true
+    template: home
+    file: index.md
+    fields:
+      - type: string
+        name: title
+        label: Page Title
+        required: true
+      - type: list
+        name: sections
+        label: Sections
+        description: Home Sections
+        items:
+          type: reference
+          labelField: title
+          models:
+            - intro
+            - features
+            - spotlight
+            - mission
+  page:
+    type: page
+    label: Page
+    template: page
+    exclude: posts/**
+    fields:
+      - type: string
+        name: title
+        label: Page Title
+        required: true
+      - type: markdown
+        name: subtitle
+        label: Page Subtitle
+        description: The text displayed below the page title
+      - type: image
+        name: img_path
+        label: Content Image
+        description: The image displayed in the page content
+  post:
+    type: page
+    label: Post
+    template: page
+    folder: posts
+    fields:
+      - type: string
+        name: title
+        label: Page Title
+        required: true
+      - type: markdown
+        name: subtitle
+        label: Page Subtitle
+        description: The text displayed below the page title
+      - type: markdown
+        name: excerpt
+        label: Post Excerpt
+        description: The excerpt displayed in the spotlights section of the home page
+      - type: image
+        name: img_path
+        label: Content Image
+        description: The image displayed in the page content
+      - type: string
+        name: post_button_label
+        label: Spotlights Button label
+        description: The text displayed in the home spotligh button
+      - type: date
+        name: date
+        label: Post Date
+        required: true
+  elements:
+    type: page
+    label: Elements
+    hideContent: true
+    singleInstance: true
+    template: elements
+    file: elements.md
+    fields:
+      - type: string
+        name: title
+        label: Page Title
+        required: true
+  section:
+    type: object
+    label: Section
+    labelField: title
+    fields:
+      - type: string
+        name: title
+        label: Section Title
+        required: true
+        description: The bold text displayed at the top of the section
+      - type: markdown
+        name: content
+        label: Section Content
+        description: The text displayed as section content
+      - type: list
+        name: actions
+        label: Section Action Buttons
+        items:
+          type: action
+      - type: string
+        name: component
+        label: Section Component
+        required: true
+        hidden: true
+  intro:
+    type: object
+    label: Intro Section
+    extends:
+      - section
+    fields:
+      - name: title
+        default: Reflex
+      - type: image
+        name: img_path
+        label: Image
+        description: The image displayed on the left side of the section
+      - name: component
+        const: intro.html
+  features:
+    type: object
+    label: Features Section
+    extends:
+      - section
+    fields:
+      - name: title
+        default: Ipsum malesuada
+      - type: markdown
+        name: subtitle
+        label: Section Subtitle
+        description: The text displayed below the section title
+      - type: list
+        name: symbol_display
+        label: Icon Circles
+        description: The icons displayed below the section subtitle
+        items:
+          type: object
+          labelField: title
+          fields:
+            - type: string
+              name: title
+              label: Icon Title
+              required: true
+            - type: string
+              name: icon
+              label: Icon
+              required: true
+              description: Font Awesome icon
+      - name: component
+        const: features.html
+  spotlight:
+    type: object
+    label: Spotlight Section
+    extends:
+      - section
+    fields:
+      - name: title
+        default: Duis torquent
+      - type: markdown
+        name: subtitle
+        label: Section Subtitle
+        description: The text displayed below the section title
+      - name: component
+        const: spotlight.html
+  mission:
+    type: object
+    label: Mission Section
+    extends:
+      - section
+    fields:
+      - name: title
+        default: Amet ullamcorper
+      - name: component
+        const: mission.html
+  action:
+    type: object
+    label: Action
+    labelField: label
+    fields:
+      - type: string
+        name: label
+        label: Button Label
+        required: true
+        description: The text displayed inside the button
+      - type: string
+        name: url
+        label: Button URL
+        widget: url
+      - type: boolean
+        name: is_scrolly
+        label: Is Scrolly
+        default: false
+        description: >-
+          Gives the button a scroll animation (if the button URL is a section
+          ID)
+      - type: boolean
+        name: is_primary
+        label: Is Primary
+        default: false
+        description: Gives the button a primary color scheme
+stackbit_banner:
+  show_banner: true
+  name: Reflex
+  create_url: 'https://app.stackbit.com/wizard?theme=reflex'
+  github_url: 'https://github.com/stackbithq/stackbit-theme-reflex'

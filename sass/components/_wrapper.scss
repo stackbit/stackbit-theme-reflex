@@ -1,0 +1,222 @@
+///
+/// Reflex by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Wrapper */
+
+	.wrapper {
+		@include padding(7.5em, 0);
+
+		> .inner {
+			width: 72em;
+			max-width: 100%;
+			margin: 0 auto;
+
+			@include breakpoint('<=xlarge') {
+				width: 64em;
+			}
+		}
+
+		&.style1 {
+		}
+
+		&.style2 {
+			background-color: _palette(bg-alt);
+		}
+
+		&.style3 {
+			@include color('invert');
+			@include vendor('background-image', (
+				'linear-gradient(to top, #{transparentize(_palette(invert, bg), 0.3)}, #{transparentize(_palette(invert, bg), 0.3)})',
+				'url("../../images/pic05.jpg")'
+			));
+			background-size:		cover, cover;
+			background-position:	center, center;
+			background-repeat:		repeat, no-repeat;
+			background-attachment:	fixed;
+
+			> .inner {
+				&.split {
+					@include breakpoint('<=medium') {
+						> :first-child {
+							border-bottom-color: _palette(invert, border-alt);
+						}
+					}
+				}
+			}
+		}
+
+		&.featured {
+			text-align: center;
+
+			> .inner {
+				@include vendor('display', 'inline-flex');
+				@include vendor('flex-direction', 'row');
+				@include vendor('align-items', 'center');
+				padding: 2em 0;
+				width: auto;
+				text-align: left;
+
+				> .image {
+					display: block;
+					margin: 0 (_size(element-margin) * 2) _size(element-margin) 0;
+					width: 21em;
+
+					img {
+						border-radius: 100%;
+						width: 100%;
+					}
+				}
+
+				> .content {
+					h1 {
+						font-size: 4em;
+
+						&:before {
+							display: none;
+						}
+					}
+
+					p {
+						font-size: 1.5em;
+						margin: 0 0 (_size(element-margin) * 0.75) 0;
+					}
+				}
+
+				@include breakpoint('<=large') {
+					padding: 0;
+
+					> .content {
+						h1 {
+							font-size: 3.5em;
+						}
+
+						p {
+							font-size: 1.25em;
+						}
+					}
+				}
+
+				@include breakpoint('<=medium') {
+					display: block;
+					text-align: center;
+
+					> .image {
+						margin: 0 auto (_size(element-margin) * 1.5) auto;
+						width: 18em;
+					}
+
+					> .content {
+						p {
+							margin: 0 0 _size(element-margin) 0;
+						}
+					}
+				}
+
+				@include breakpoint('<=small') {
+					> .image {
+						margin: 0 auto (_size(element-margin) * 1.25) auto;
+						width: 13em;
+					}
+
+					> .content {
+						h1 {
+							font-size: 2.5em;
+						}
+
+						p {
+							font-size: 1em;
+						}
+					}
+				}
+
+				@include breakpoint('<=xxsmall') {
+					> .image {
+						margin: 0 auto (_size(element-margin) * 1) auto;
+						width: 11em;
+					}
+				}
+			}
+		}
+
+		&.split {
+			> .inner {
+				@include vendor('display', 'flex');
+				@include vendor('flex-direction', 'row');
+
+				> * {
+					width: 50%;
+					-ms-flex: 1;
+				}
+
+				> :first-child {
+					margin-right: _size(element-margin);
+				}
+
+				> :last-child {
+					margin-left: _size(element-margin);
+				}
+
+				@include breakpoint('<=large') {
+					> :first-child {
+						margin-right: (_size(element-margin) * 0.75);
+					}
+
+					> :last-child {
+						margin-left: (_size(element-margin) * 0.75);
+					}
+				}
+
+				@include breakpoint('<=medium') {
+					display: block;
+					text-align: center;
+
+					header {
+						h2, h3, h4, h5, h6 {
+							&::before {
+								margin-left: auto !important;
+								margin-right: auto !important;
+							}
+						}
+					}
+
+					> * {
+						width: 100%;
+					}
+
+					> :first-child {
+						margin-right: 0;
+						border-bottom: solid 1px _palette(border-alt);
+						padding-bottom: _size(element-margin);
+						margin-bottom: (_size(element-margin) * 2) !important;
+					}
+
+					> :last-child {
+						margin-left: 0;
+					}
+				}
+			}
+		}
+
+		@include breakpoint('<=large') {
+			@include padding(6em, 3em);
+
+			> .inner {
+				width: 100%;
+			}
+		}
+
+		@include breakpoint('<=small') {
+			@include padding(4em, 2em);
+		}
+
+		@include breakpoint('<=xsmall') {
+			@include padding(4em, 1.5em);
+		}
+
+		@include breakpoint('<=xxsmall') {
+			@include padding(3em, 1em);
+		}
+	}

@@ -1,0 +1,14 @@
+baseurl: "/"
+title: "Reflex"
+main_js: "assets/js/main.js"
+page_load_js: "assets/js/page_load.js"
+params:
+  none: ""
+sass:
+  input_file: sass/main.scss
+  output_file: assets/css/main.css
+  indentWidth: 4
+  outputStyle: nested
+  precision: 10
+#templates:
+#  body_class: "is-preload"

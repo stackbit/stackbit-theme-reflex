@@ -1,0 +1,12 @@
+body.has-theme-bar {
+    #theme-bar{
+        button{
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+
+        button:hover{
+            border: none !important;
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+    }
+}

@@ -1,0 +1,63 @@
+///
+/// Reflex by Pixelarity
+/// pixelarity.com | hello@pixelarity.com
+/// License: pixelarity.com/license
+///
+
+/* Section/Article */
+
+	section, article {
+		header {
+			h1, h2, h3, h4, h5, h6 {
+				&:before {
+					content: '';
+					display: block;
+					width: 2em;
+					height: 1px;
+					border-top: solid 1px;
+					margin: 0 0 1em 0;
+				}
+			}
+
+			p {
+				font-size: 1.25em;
+			}
+
+			&.major {
+				text-align: center;
+				margin: 0 0 (_size(element-margin) * 1.5) 0;
+
+				h1, h2, h3, h4, h5, h6 {
+					&:before {
+						margin-left: auto;
+						margin-right: auto;
+					}
+				}
+			}
+		}
+
+		&.special {
+			text-align: center;
+
+			header {
+				h2, h3, h4, h5, h6 {
+					&:before {
+						margin-left: auto;
+						margin-right: auto;
+					}
+				}
+			}
+		}
+
+		@include breakpoint('<=small') {
+			header {
+				p {
+					font-size: 1em;
+
+					br {
+						display: none;
+					}
+				}
+			}
+		}
+	}

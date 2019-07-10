@@ -1,0 +1,36 @@
+<!-- Two -->
+<section class="wrapper style1 special">
+    <div class="inner">
+        <header>
+            <h2>{{ include_dict.section.title }}</h2>
+            {{ include_dict.section.subtitle | markdownify }}
+        </header>
+        {% for post in getPages("/posts") | sort(true, true, "date") %}
+            <section class="spotlight">
+                <span class="image"><img src="{{ post.img_path | relative_url }}" alt="" /></span>
+                <div class="content">
+                    <header>
+                        <h3>{{ post.title }}</h3>
+                    </header>
+                    {{ post.excerpt | markdownify }}
+                    <footer>
+                        <ul class="actions">
+                            <li><a href="{{ post.url | relative_url }}" class="button">{{ post.post_button_label }}</a></li>
+                        </ul>
+                    </footer>
+                </div>
+            </section>
+        {% endfor %}
+            
+        {{ include_dict.section.content | markdownify }}
+        {% if include_dict.section.actions %}
+            <footer>
+                <ul class="actions special">
+                    {% for action in include_dict.section.actions %}
+                        <li><a href="{% if action.url | starts_with('#') %}{{ action.url }}{% else %}{{ action.url | link | relative_url }}{% endif %}" {{ classNames("button", {"primary": action.is_primary}, {"scrolly": action.is_scrolly}) }}>{{ action.label }}</a></li>
+                    {% endfor %}
+                </ul>
+            </footer>
+        {% endif %}
+    </div>
+</section>
