@@ -1,9 +1,9 @@
 actions:
   - label: Get Started
-    url: generic.md
+    url: "/generic"
     is_scrolly: false
     is_primary: true
   - label: Log In
-    url: generic.md
+    url: "/generic"
     is_scrolly: false
     is_primary: false

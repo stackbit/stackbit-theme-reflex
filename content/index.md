@@ -10,7 +10,7 @@ sections:
         Class aptent taciti sociosqu torquent.
     actions:
       - label: Get Started
-        url: generic.md
+        url: "/generic"
         is_scrolly: false
         is_primary: false
     component: "intro.html"
@@ -33,7 +33,7 @@ sections:
     content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos malesuada fames ac turpis egestas. In non lorem amet. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique eu nibh.
     actions:
       - label: Details
-        url: generic.md
+        url: "/generic"
         is_scrolly: false
         is_primary: false
     component: "features.html"
@@ -45,7 +45,7 @@ sections:
     content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos malesuada fames ac turpis egestas. In non lorem amet. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique eu nibh.
     actions:
       - label: Details
-        url: generic.md
+        url: "/generic"
         is_scrolly: false
         is_primary: false
     component: "spotlight.html"
@@ -57,7 +57,7 @@ sections:
         turpis mauris, ultricies erat malesuada quis.
     actions:
       - label: Get Started
-        url: generic.md
+        url: "/generic"
         is_scrolly: false
         is_primary: false
     component: "mission.html"
