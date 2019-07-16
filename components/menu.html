@@ -9,7 +9,7 @@
         </ul>
         {% if site.data.menu.actions %}
             <ul class="actions stacked">
-                {% for action in site.params.menu.actions %}
+                {% for action in site.data.menu.actions %}
                     <li><a href="{% if action.url | starts_with('#') %}{{ action.url }}{% else %}{{ action.url | relative_url }}{% endif %}" {{ classNames("button", "fit", {"primary": action.is_primary}, {"scrolly": action.is_scrolly}) }}>{{ action.label }}</a></li>
                 {% endfor %}
             </ul>
