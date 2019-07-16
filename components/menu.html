@@ -7,7 +7,7 @@
                 <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
             {% endfor %}
         </ul>
-        {% if site.params.menu.actions %}
+        {% if site.data.menu.actions %}
             <ul class="actions stacked">
                 {% for action in site.params.menu.actions %}
                     <li><a href="{% if action.url | starts_with('#') %}{{ action.url }}{% else %}{{ action.url | relative_url }}{% endif %}" {{ classNames("button", "fit", {"primary": action.is_primary}, {"scrolly": action.is_scrolly}) }}>{{ action.label }}</a></li>
