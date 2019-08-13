@@ -1,5 +1,12 @@
-stackbitVersion: ~0.2.34
+stackbitVersion: ~0.2.0
+ssgName: unibit
+buildCommand: unibit build
+publishDir: output
+staticDir: static
 uploadDir: images
+dataDir: data
+pagesDir: content
+pageLayoutKey: layout
 metadata:
   title: Reflex
   description: a multipage theme with posts
@@ -309,5 +316,3 @@ stackbit_banner:
   name: Reflex
   create_url: 'https://app.stackbit.com/create?theme=reflex'
   github_url: 'https://github.com/stackbithq/stackbit-theme-reflex'
-pagesDir: content
-staticDir: static
