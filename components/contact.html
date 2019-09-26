@@ -1,10 +1,14 @@
 <section>
-    <form method="post" action="#" id="contactForm">
+    <form id="contactForm" name="contactForm" method="post" action="#" netlify-honeypot="bot-field" data-netlify="true">
+        <div class="screen-reader-text">
+            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+        </div>
         <div class="fields">
             <div class="field half"><input type="text" name="name" id="name" placeholder="Name" /></div>
             <div class="field half"><input type="email" name="email" id="email" placeholder="Email" /></div>
             <div class="field"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
         </div>
+        <input type="hidden" name="form-name" value="contactForm" />
         <ul class="actions">
             <li><input type="submit" value="Send Message" /></li>
         </ul>
