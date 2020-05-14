@@ -1,6 +1,6 @@
 # Reflex
 
-A sleek SaaS theme for Stackbit. [Live Demo](https://themes.stackbit.com/demos/reflex)
+A multipage theme with posts for Stackbit. [Live Demo](https://themes.stackbit.com/demos/reflex)
 
 ### About Stackbit
 
